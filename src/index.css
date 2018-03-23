@@ -1,0 +1,46 @@
+body {
+  background-color: #555fff;
+}
+
+.board {
+  background-color: #fff555;
+  height: 430px;
+  width: 500px;
+  padding:20px;
+  clear: both;
+  /*content: "";
+  display: table;*/
+}
+
+.column {
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 420px;
+  margin-right: -1px;
+  margin-bottom: -5px;
+  padding: 0;
+  text-align: center;
+  width: 70px;
+}
+
+.slot {
+  border-top: 1px solid #999;
+  float: left;
+  margin-top: -1px;
+  margin-right: -1px;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  text-align: center;
+  clear: left;
+}
+
+.red {
+  background-color: red;
+}
