@@ -1,9 +1,14 @@
-body {
+body, .window {
   background-color: #555fff;
 }
-
-.board {
+button:focus, .column:focus {
+  outline: none;
+}
+.board, .column, .slot, .window{
   background-color: #fff555;
+  border: none;
+}
+.board {
   height: 430px;
   width: 500px;
   padding:20px;
@@ -13,21 +18,21 @@ body {
 }
 
 .column {
-  border: 1px solid #999;
   float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
   height: 420px;
-  margin-right: -1px;
-  margin-bottom: -5px;
   padding: 0;
   text-align: center;
   width: 70px;
 }
 
+/*.column:hover {
+  cursor: pointer;
+}*/
+
 .slot {
-  border-top: 1px solid #999;
   float: left;
   margin-top: -1px;
   margin-right: -1px;
@@ -38,9 +43,34 @@ body {
   font-weight: bold;
   line-height: 34px;
   text-align: center;
+  align-content: center;
   clear: left;
+  cursor: pointer;
+}
+
+.window {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 5px;
+  background-image: radial-gradient(farthest-corner at -70px -40px,
+      #000 0%, #666fff 100%);
+}
+
+/*.window:hover{
+  background-image: radial-gradient(farthest-corner at -70px -40px,
+      #444 0%, #999fff 100%);
+  cursor: pointer;
+}*/
+
+.blue{
+  background-image: none;
+  background-color: blue;
 }
 
 .red {
+  background-image: none;
   background-color: red;
 }
