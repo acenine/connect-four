@@ -145,21 +145,23 @@ class Board extends React.Component {
   // renderColumn(i) {
   //   return <Column key={i} handleClick={this.handleClick(i)} />
   // }
+  getStatus() {
+    if (!this.state.winner && Object.keys(this.state.board).length < 42) {
+      return (this.state.p1turn ? c[0] : c[1]) + '\'s turn';
+    }
+    else {
+      if (this.state.winner) {
+        var winner = (this.state.p1turn ? c[1] : c[0]) + ' wins!'
+      }
+      return 'Game over: ' + (winner ? winner : 'It\'s a draw!')
+    }
+  }
 
   render() {
-    var status;
-    if (this.state.winner) {
-      status = (this.state.p1turn ? c[1] : c[0]) + ' wins!'
-    }
-    else if (Object.keys(this.state.board).length === 42) {
-      status = 'Game Over!'
-    } 
-    else {
-      status = (this.state.p1turn ? c[0] : c[1]) + '\'s turn'
-    }
+    var status = this.getStatus();
     return (
-      <div className="board-container">
-        <div className="status" > 
+      <div className="container">
+        <div className="status container" > 
           {status}       
         </div>
         <div className="board">
@@ -283,8 +285,8 @@ class Swatch extends React.Component {
 class Game extends React.Component {
   render() {
     return (
-      <div className="game">
-        <h1 className="title">Connect-four!</h1>
+      <div className="game container">
+        <h1 className="title">Connect Four</h1>
         <Board />
       </div>
     );
