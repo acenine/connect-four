@@ -246,40 +246,6 @@ class Slot extends React.Component {
 
 
 
-class Palette extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-  render() {
-    return (
-      <div className="palette"> 
-
-      </div>
-    );
-  }
-}
-
-
-
-class Swatch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  } 
-  render() {
-    return (
-      <div className={"swatch "}>
-
-      </div>
-    );
-  }
-}
-
 
 
 class Game extends React.Component {
