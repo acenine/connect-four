@@ -3,7 +3,7 @@ body, .window {
   font: 18pt sans-serif;
   color: #393939;
 }
-button:focus, .column:focus {
+button:focus {
   outline: none;
 }
 .game {
