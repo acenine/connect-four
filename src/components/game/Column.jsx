@@ -6,7 +6,7 @@ class Column extends React.Component {
     return (
       <button className="column" onClick={() => this.props.columnClick(this.props.index)}>
         {this.props.slots.map((slot, i)=> {
-          return <Slot key={i} index={i} value={slot || null}/>
+          return <Slot key={i} index={i} value={slot}/>
         }).reverse()}
       </button>
     );

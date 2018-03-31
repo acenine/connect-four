@@ -1,17 +1,5 @@
-var board = Array(7).fill(Array(6).fill(null));
-board[0] = Array(6).fill('blue');
-checkWinner(board, i, j) {
-  return (
-    this.checkColumn(i, j) ||
-    this.checkRow(i, j) ||
-    this.checkUpDiag(i, j) ||
-    this.checkDownDiag(i, j)
-  );
-}
 
-checkColumn(board, i, j) {
-// //0-5 0-6
-  var board = this.state.board;
+var checkColumn = (board, i, j) => {
   if (j < 3) {
     return false;
   }
@@ -23,8 +11,7 @@ checkColumn(board, i, j) {
   }
   return true;
 }
-checkRow(board, i, j) {
-  var board = this.state.board;
+var checkRow = (board, i, j) => {
   var count = 0;
   var val = board[i][j];
   for (var t = 0; t < 7; t++) {
@@ -40,8 +27,7 @@ checkRow(board, i, j) {
   }
   return false;
 }
-checkUpDiag(board, i, j) {
-  var board = this.state.board;
+var checkUpDiag = (board, i, j) => {
   var count = 0;
   var val = board[i][j];
   var start = [null, null];
@@ -70,8 +56,7 @@ checkUpDiag(board, i, j) {
   }
   return false;
 }
-checkDownDiag(board, i, j) {
-  var board = this.state.board;
+var checkDownDiag = (board, i, j) => {
   var count = 0;
   var val = board[i][j];
   var start = [null, null];
@@ -100,3 +85,12 @@ checkDownDiag(board, i, j) {
   }
   return false;
 }
+var checkWinner = (board, i, j) => {
+  return (
+    checkColumn(board, i, j) ||
+    checkRow(board, i, j) ||
+    checkUpDiag(board, i, j) ||
+    checkDownDiag(board, i, j)
+  );
+}
+export default checkWinner;

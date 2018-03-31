@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './Board.jsx';
 import Button from '../Button.jsx';
+import winCheck from './winCheck.js';
 
 class Game extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Game extends React.Component {
     this.state = {
       board: [...Array(this.props.width).keys()].map(() => [...Array(this.props.height).keys()].map(()=>null)),
       turn: 0,
+      winner: false,
     };
       console.log(this.state.board[3][2])
   }
@@ -38,9 +40,12 @@ class Game extends React.Component {
     this.setState({
       board: board,
       turn: 0,
+      winner: false,
     });
   }
-
+  winner(i, j) {
+    return winCheck(this.state.board, i, j);
+  }
   player() { // returns the player whose turn it is
     const players = this.props.players;
     const numPlayers = players.length;
@@ -48,17 +53,16 @@ class Game extends React.Component {
   }
 
   updateBoard(i) {
-    var {board, turn} = this.state;
+    var {board, turn, winner} = this.state;
     var j = board[i].indexOf(null);
-    if (j < 0 || turn === 42) {
+    if (j < 0 || winner || turn === 42) {
       return;
     }
     var player = this.player();
     board[i][j] = player.color;
-
-    console.log(board, turn)
+    winner = winCheck(this.state.board, i, j);
     turn++;
-    this.setState({board, turn});
+    this.setState({board, turn, winner});
   }
 }
 
