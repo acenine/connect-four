@@ -10,7 +10,12 @@ button:focus {
 
 }
 .button {
-  border: 2px solid #5a5;
+  border: 2px solid #00ace0;
+  border-radius: 7px;
+  background: #000ace;
+  color: white;
+  margin-bottom: 20px;
+  padding: 5px 10px 7px 10px;
 }
 .title {
   font-size: 60px;

@@ -26,7 +26,7 @@ class Board extends React.Component {
                 key={i}
                 index={i}
                 slots={column}
-                // handleClick={this.handleClick.bind(this)}
+                columnClick={this.props.columnClick}
                 p1turn={this.state.p1turn}
                 winner={this.state.winner}
               />
@@ -49,17 +49,7 @@ class Board extends React.Component {
   //     this.setState({winner: true})
   //   }
   // }
-  // getStatus() {
-  //   if (!this.state.winner && Object.keys(this.state.board).length < 42) {
-  //     return (this.state.p1turn ? c[0] : c[1]) + '\'s turn';
-  //   }
-  //   else {
-  //     if (this.state.winner) {
-  //       var winner = (this.state.p1turn ? c[1] : c[0]) + ' wins!'
-  //     }
-  //     return 'Game over: ' + (winner ? winner : 'It\'s a draw!')
-  //   }
-  // }
+  //
 
 }
 

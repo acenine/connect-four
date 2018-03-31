@@ -18,33 +18,36 @@ import './index.css';
 
 //  --- Modules ---
 import Game from './components/game/Game.jsx';
-// import Menu from './components/menu/Menu.jsx';
+import Menu from './components/menu/Menu.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       players: [{name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}],
-      board: Array(this.props.width).fill(Array(this.props.height).fill(null)),
-    }
+      boardSize: {width: 7, height: 6},
+    };
   }
-  newGame() {
-    this.setState({
-      board: Array(7).fill(Array(6).fill(null)),
-    })
-  }
-  setName(index, name) {
-    var {players} = this.state;
-    players[index].name = name;
-    this.setState({
-      players: players,
-    })
-  }
+  // setName(index, name) {
+  //   var {players} = this.state;
+  //   players[index].name = name;
+  //   this.setState({
+  //     players: players,
+  //   })
+  // }
   render() {
+    const {boardSize, players} = this.state;
     return (
       <div className="app container">
         <h1 className="title">Connect Four</h1>
-        {<Game players={this.state.players} board={this.state.board} newGame={this.newGame}/>}
+        {
+          // <Menu/>
+          <Game
+            players={players}
+            width={boardSize.width}
+            height={boardSize.height}
+          />
+        }
       </div>
     );
   }
@@ -58,7 +61,7 @@ class App extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <App width={7} height={6} />,
+  <App />,
   document.getElementById('root')
 );
 
