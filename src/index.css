@@ -7,7 +7,10 @@ button:focus {
   outline: none;
 }
 .game {
-  
+
+}
+.button {
+  border: 2px solid #5a5;
 }
 .title {
   font-size: 60px;

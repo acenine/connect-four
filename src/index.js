@@ -18,14 +18,14 @@ import './index.css';
 
 //  --- Modules ---
 import Game from './components/game/Game.jsx';
-import Menu from './components/menu/Menu.jsx';
+// import Menu from './components/menu/Menu.jsx';
 
-class App extends React.component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       players: [{name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}],
-      board: Array(7).fill(Array(6).fill(null)),
+      board: Array(this.props.width).fill(Array(this.props.height).fill(null)),
     }
   }
   newGame() {
@@ -37,14 +37,14 @@ class App extends React.component {
     var {players} = this.state;
     players[index].name = name;
     this.setState({
-
+      players: players,
     })
   }
   render() {
     return (
       <div className="app container">
         <h1 className="title">Connect Four</h1>
-        {<Menu/> || <Game players={this.state.players} columns={this.state.board} newGame={this.newGame}/>}
+        {<Game players={this.state.players} board={this.state.board} newGame={this.newGame}/>}
       </div>
     );
   }
@@ -58,7 +58,7 @@ class App extends React.component {
 // ========================================
 
 ReactDOM.render(
-  <App />,
+  <App width={7} height={6} />,
   document.getElementById('root')
 );
 

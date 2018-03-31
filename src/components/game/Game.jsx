@@ -1,6 +1,6 @@
 import React from 'react';
-// import Board from './Board.jsx';
-import Button from '../Button.jsx';
+import Board from './Board.jsx';
+// import Button from '../Button.jsx';
 
 class Game extends React.Component {
   render() {
@@ -9,9 +9,8 @@ class Game extends React.Component {
         <div className="status container" >
           {'status'}
         </div>
-        <Button value="New Game" clickFn={this.props.newGame}/>
-        {/*<Board />*/}
-        BOARD
+        {/*<Button value="New Game" clickFn={this.props.newGame}/>*/}
+        <Board columns={this.props.board}/>
       </div>
     );
   }
