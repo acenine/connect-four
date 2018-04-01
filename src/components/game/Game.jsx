@@ -14,27 +14,31 @@ class Game extends React.Component {
       console.log(this.state.board[3][2])
   }
   render() {
+    var status = this.getStatus();
     return (
       <div className="game container">
         <div className="status container" >
-          {'status'}
+          {status}
         </div>
         <Button value="New Game" clickFn={this.newGame.bind(this)}/>
         <Board columns={this.state.board} columnClick={this.updateBoard.bind(this)}/>
       </div>
     );
   }
-  // getStatus() {
-  //   if (!this.state.winner && Object.keys(this.state.board).length < 42) {
-  //     return (this.state.p1turn ? c[0] : c[1]) + '\'s turn';
-  //   }
-  //   else {
-  //     if (this.state.winner) {
-  //       var winner = (this.state.p1turn ? c[1] : c[0]) + ' wins!'
-  //     }
-  //     return 'Game over: ' + (winner ? winner : 'It\'s a draw!')
-  //   }
-  // }
+  getStatus() {
+    var {winner, turn} = this.state;
+    var name = this.player().name;
+    if (!winner && turn < 42) {
+      return (name) + '\'s turn';
+    }
+    else {
+      if (winner) {
+        name = this.player(turn - 1).name;
+        return `Game over: ${name} wins!`
+      }
+      return 'Game over: It\'s a draw!'
+    }
+  }
   newGame() {
     var board = [...Array(this.props.width).keys()].map(() => [...Array(this.props.height).keys()].map(()=>null));
     this.setState({
@@ -47,9 +51,10 @@ class Game extends React.Component {
     return winCheck(this.state.board, i, j);
   }
   player() { // returns the player whose turn it is
+    var turn = arguments[0] || this.state.turn;
     const players = this.props.players;
     const numPlayers = players.length;
-    return players[this.state.turn % numPlayers];
+    return players[turn % numPlayers];
   }
 
   updateBoard(i) {
@@ -58,10 +63,10 @@ class Game extends React.Component {
     if (j < 0 || winner || turn === 42) {
       return;
     }
+    turn++;
     var player = this.player();
     board[i][j] = player.color;
     winner = winCheck(this.state.board, i, j);
-    turn++;
     this.setState({board, turn, winner});
   }
 }
