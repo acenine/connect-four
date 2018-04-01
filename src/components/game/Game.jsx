@@ -11,7 +11,6 @@ class Game extends React.Component {
       turn: 0,
       winner: false,
     };
-      console.log(this.state.board[3][2])
   }
   render() {
     var status = this.getStatus();
@@ -29,14 +28,14 @@ class Game extends React.Component {
     var {winner, turn} = this.state;
     var name = this.player().name;
     if (!winner && turn < 42) {
-      return (name) + '\'s turn';
+      return `${name}'s turn`;
     }
     else {
       if (winner) {
         name = this.player(turn - 1).name;
-        return `Game over: ${name} wins!`
+        return `Game over: ${name} wins!`;
       }
-      return 'Game over: It\'s a draw!'
+      return `Game over: It's a draw!`;
     }
   }
   newGame() {
@@ -47,10 +46,8 @@ class Game extends React.Component {
       winner: false,
     });
   }
-  winner(i, j) {
-    return winCheck(this.state.board, i, j);
-  }
-  player() { // returns the player whose turn it is
+
+  player() { // returns the player of a given turn or the current player
     var turn = arguments[0] || this.state.turn;
     const players = this.props.players;
     const numPlayers = players.length;
@@ -70,12 +67,5 @@ class Game extends React.Component {
     this.setState({board, turn, winner});
   }
 }
-
-// App will keep all the info because there is info that is created on page Menu that will be used by Game
-// App keeps p1 name and p2 name and their respective chose colors
-// example:
-//   var players = [{name: 'Chad', color:'green'}, {name: 'Lucy', color: 'gray'}]
-//   p1 = players[0], p2 = players[1];
-
 
 export default Game;

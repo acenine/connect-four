@@ -55,8 +55,6 @@ button:hover {
   width: 500px;
   padding:20px;
   clear: both;
-  /*content: "";
-  display: table;*/
 }
 
 .column {
@@ -69,10 +67,6 @@ button:hover {
   text-align: center;
   width: 70px;
 }
-
-/*.column:hover {
-  cursor: pointer;
-}*/
 
 .slot {
   float: left;
@@ -96,22 +90,33 @@ button:hover {
   margin-top: 10px;
   margin-left: 10px;
   box-shadow: 5px;
-  background-image: radial-gradient(farthest-corner at -70px -40px,
-      #000 0%, #aaafff 100%);
+  background: radial-gradient(farthest-corner at -70px -40px, #000 0%, #aaafff 100%);
 }
 
-/*.window:hover{
-  background-image: radial-gradient(farthest-corner at -70px -40px,
-      #444 0%, #999fff 100%);
-  cursor: pointer;
-}*/
+
+/* --- Swatch colors --- */
 
 .blue{
-  background-image: none;
-  background-color: blue;
+  background: blue;
 }
 
 .red {
-  background-image: none;
-  background-color: red;
+  background: red;
 }
+
+.green{
+  background: green;
+}
+
+.orange {
+  background: orange;
+}
+
+.purple{
+  background: purple;
+}
+
+.black {
+  background: black;
+}
+
