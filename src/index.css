@@ -92,10 +92,25 @@ button:hover {
   box-shadow: 5px;
   background: radial-gradient(farthest-corner at -70px -40px, #000 0%, #aaafff 100%);
 }
+/* --- Palette --- */
+.palette {
+  background: #765;
+  width: 600px;
+  height: 100px;
+  padding: 5px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 5px solid #543;
+}
 
 
 /* --- Swatch colors --- */
-
+.swatch {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 5px solid #543;
+}
 .blue{
   background: blue;
 }
@@ -109,7 +124,7 @@ button:hover {
 }
 
 .orange {
-  background: orange;
+  background: #f60;
 }
 
 .purple{
@@ -120,3 +135,10 @@ button:hover {
   background: black;
 }
 
+.white {
+  background: white;
+}
+
+.cyan {
+  background: #0ff;
+}

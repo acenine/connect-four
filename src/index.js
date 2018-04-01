@@ -41,12 +41,12 @@ class App extends React.Component {
       <div className="app container">
         <h1 className="title">Connect Four</h1>
         {
-          // <Menu/>
-          <Game
-            players={players}
-            width={boardSize.width}
-            height={boardSize.height}
-          />
+          <Menu/>
+          // <Game
+          //   players={players}
+          //   width={boardSize.width}
+          //   height={boardSize.height}
+          // />
         }
       </div>
     );
