@@ -1,10 +1,10 @@
-body, .window {
+body, .window, input {
   background-color: #999ace;
   font: 18pt sans-serif;
   color: #393939;
   width: 100%;
 }
-button:focus {
+button:focus, input:focus {
   outline: none;
 }
 button:hover {
@@ -22,6 +22,12 @@ button:hover {
   border-radius: 20px;
   padding: 5px 10px;
   margin-bottom: 10px;
+}
+input {
+  background: #987;
+  text-align: center;
+  width: 90%;
+  border: none;
 }
 .button {
   border: 1px solid #050;
@@ -48,6 +54,10 @@ button:hover {
   margin-top: 10px;
   margin-bottom: 30px;
   text-shadow: 2px 1px 2px #558ABB;
+  /*color: #234;
+  text-shadow:1px 1px 6px #333ace;*/
+  /*color: #fff555;
+  text-shadow: 1px 1px 2px #f55, -1px 1px 2px #f55, 1px -1px 2px #f55, -1px -1px 2px #f55, 1px 1px 6px blue;*/
 }
 .status {
   width: 300px;

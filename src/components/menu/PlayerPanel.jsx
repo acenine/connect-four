@@ -4,13 +4,23 @@ import Swatch from './Swatch.jsx';
 
 class PlayerPanel extends React.Component {
   render() {
-    var player = this.props.player;
+    var {player, setName, index} = this.props;
     return (
       <div className="container panel">
-        {player.name}
+        {
+          <Input
+            placeholder={"Name"}
+            value={player.name} // can do some toggle for value a placeholder with input and default value
+            setName={this.setName.bind(this)}
+          />
+        }
         <Swatch color={player.color}/>
       </div>
     );
+  }
+  setName(value) {
+    var {setName, index} = this.props;
+    setName(index, value)
   }
 }
 

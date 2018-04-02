@@ -81,7 +81,10 @@ class App extends React.Component {
 // shows Menu first for players to choose their name and color
 //   that gets saved in state.players
 //   new game button resets board to initial
-
+// i am thinking about putting the menu so that all four player spaces are displayed but the last two are disabled
+// when you hover over that area, or perhaps just always, it says add player
+//   when you click it, that becomes an active player module thus editable
+//   then the delete button only appears after it has been activated
 
 // ========================================
 

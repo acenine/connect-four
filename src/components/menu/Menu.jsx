@@ -11,7 +11,7 @@ class Menu extends React.Component {
   //   };
   // }
   render() {
-    var {players, colors, addPlayer, showGame} = this.props;
+    var {players, colors, addPlayer, showGame, setName} = this.props;
     return (
       <div className="container">
         <div className="menu buttons container">
@@ -26,7 +26,13 @@ class Menu extends React.Component {
         </div>
         <div className="panels container">
           {players.map((player, i) => {
-            return <PlayerPanel key={i} index={i} player={player}/>
+            return (
+              <PlayerPanel
+                key={i}
+                index={i}
+                player={player}
+                setName={setName}
+              />);
           })}
         </div>
         <Palette colors={colors}/>
