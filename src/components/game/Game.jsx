@@ -15,12 +15,21 @@ class Game extends React.Component {
   render() {
     var status = this.getStatus();
     return (
-      <div className="game container">
-        <div className="status container" >
+      <div className="container">
+        <div className="game status container" >
           {status}
         </div>
-        <Button value="New Game" clickFn={this.newGame.bind(this)}/>
         <Board columns={this.state.board} columnClick={this.updateBoard.bind(this)}/>
+        <div className="game buttons container">
+          <Button
+            value="New Game"
+            clickFn={this.newGame.bind(this)}
+          />
+          <Button
+            value="Edit Config"
+            clickFn={this.props.showMenu}
+          />
+        </div>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import Swatch from './Swatch.jsx';
 
 class Palette extends React.Component {
   render() {
-    var colors = ['blue', 'red', 'green', 'orange', 'purple', 'black', 'white', 'cyan'];
+    var colors = this.props.colors;
     return (
       <div className="container palette">
         {colors.map((color, i) => {

@@ -20,33 +20,58 @@ import './index.css';
 import Game from './components/game/Game.jsx';
 import Menu from './components/menu/Menu.jsx';
 
+// [ {name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}, {name: 'Mark', color: 'green'}, {name: 'Faye', color: 'orange'} ]
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: [{name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}],
+      players: [ {name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}],
       boardSize: {width: 7, height: 6},
+      colors: ['blue', 'red', 'green', 'orange', 'purple', 'black', 'white', 'cyan'],
+      showGame: false,
     };
   }
-  // setName(index, name) {
-  //   var {players} = this.state;
-  //   players[index].name = name;
-  //   this.setState({
-  //     players: players,
-  //   })
-  // }
+  setName(index, name) {
+    var {players} = this.state;
+    players[index].name = name;
+    this.setState({
+      players: players,
+    })
+  }
+  addPlayer() {
+    var {players, colors} = this.state;
+    if (players.length === 4) {
+      return;
+    }
+    players.push({name: 'Name', color: colors[players.length]});
+    this.setState({players})
+  }
+  toggleView() {
+    var {showGame} = this.state;
+    this.setState({
+      showGame: !showGame,
+    })
+  }
   render() {
-    const {boardSize, players} = this.state;
+    const {boardSize, players, showGame} = this.state;
     return (
       <div className="app container">
         <h1 className="title">Connect Four</h1>
-        {
-          <Menu/>
-          // <Game
-          //   players={players}
-          //   width={boardSize.width}
-          //   height={boardSize.height}
-          // />
+        {showGame ?
+          <Game
+            players={players}
+            width={boardSize.width}
+            height={boardSize.height}
+            showMenu={this.toggleView.bind(this)}
+          />
+          :
+          <Menu
+            setName={this.setName.bind(this)}
+            addPlayer={this.addPlayer.bind(this)}
+            showGame={this.toggleView.bind(this)}
+            players={this.state.players}
+            colors={this.state.colors}
+          />
         }
       </div>
     );
