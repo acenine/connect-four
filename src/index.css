@@ -28,6 +28,7 @@ input {
   text-align: center;
   width: 90%;
   border: none;
+  caret-color: #543;
 }
 .button {
   border: 1px solid #050;
@@ -42,6 +43,16 @@ input {
 }
 .button:active {
   background: #080;
+}
+.add {
+  font: 18pt sans-serif;
+  color: #543;
+  text-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.add:active {
+  background: #765;
 }
 .buttons {
   flex-direction: row;
@@ -125,6 +136,7 @@ input {
   width: 125px;
   height: 150px;
   justify-content: space-evenly;
+
 }
 
 /* --- Palette --- */
@@ -138,7 +150,9 @@ input {
   flex-direction: row;
   justify-content: space-between;
 }
-
+.delete {
+  background: red;
+}
 
 /* --- Swatch colors --- */
 .swatch {
@@ -146,6 +160,7 @@ input {
   width: 60px;
   height: 60px;
   border: 5px solid #543;
+  background: #876
 }
 .blue{
   background: blue;

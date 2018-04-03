@@ -9,13 +9,13 @@ const Button = props => {
   );
 };
 
-Button.propTypes = {
-  value: PropTypes.string,
-  clickFn: PropTypes.func,
-};
+// Button.propTypes = {
+//   value: PropTypes.string,
+//   clickFn: PropTypes.func,
+// };
 
-Button.default = {
-  type: 'button',
-}
+// Button.default = {
+//   type: 'button',
+// }
 
 export default Button;

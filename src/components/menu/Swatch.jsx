@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 
 class Swatch extends React.Component {
   render() {
-    const color = this.props.color;
+    const {color, clickFn, className} = this.props;
     return (
-      <button className={`swatch ${color}`}>
+      <button className={`swatch ${color} ${className}`} onClick={clickFn}>
       </button>
     );
   }
 }
 
-Swatch.propTypes = {
-  color: PropTypes.string.isRequired,
-}
 
 export default Swatch;

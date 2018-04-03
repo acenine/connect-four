@@ -20,15 +20,18 @@ import './index.css';
 import Game from './components/game/Game.jsx';
 import Menu from './components/menu/Menu.jsx';
 
-// [ {name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}, {name: 'Mark', color: 'green'}, {name: 'Faye', color: 'orange'} ]
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: [ {name: 'Lucy', color:'blue'}, {name: 'Chad', color: 'red'}],
+      players: [{name: '', color: '', isActive: true},
+                {name: '', color: '', isActive: true},
+                {name: '', color: '', isActive: false},
+                {name: '', color: '', isActive: false}],
       boardSize: {width: 7, height: 6},
       colors: ['blue', 'red', 'green', 'orange', 'purple', 'black', 'white', 'cyan'],
       showGame: false,
+      selected: -1,
     };
   }
   setName(index, name) {
@@ -38,22 +41,31 @@ class App extends React.Component {
       players: players,
     })
   }
-  addPlayer() {
-    var {players, colors} = this.state;
-    if (players.length === 4) {
+  setColor(index) {
+    var {players, colors, selected} = this.state;
+    if (selected < 0) {
       return;
     }
-    players.push({name: 'Name', color: colors[players.length]});
+    players[selected].color = colors[index];
     this.setState({players})
   }
-  toggleView() {
-    var {showGame} = this.state;
+  setSelected(index) {
     this.setState({
-      showGame: !showGame,
+      selected: index,
+    });
+  }
+  toggleActivePlayer(index) {
+    var {players} = this.state;
+    players[index].isActive = !players[index].isActive;
+    this.setState({players});
+  }
+  toggleView() {
+    this.setState({
+      showGame: !this.state.showGame,
     })
   }
   render() {
-    const {boardSize, players, showGame} = this.state;
+    const {boardSize, players, showGame, colors} = this.state;
     return (
       <div className="app container">
         <h1 className="title">Connect Four</h1>
@@ -67,10 +79,12 @@ class App extends React.Component {
           :
           <Menu
             setName={this.setName.bind(this)}
-            addPlayer={this.addPlayer.bind(this)}
+            toggleActive={this.toggleActivePlayer.bind(this)}
             showGame={this.toggleView.bind(this)}
-            players={this.state.players}
-            colors={this.state.colors}
+            setColor={this.setColor.bind(this)}
+            setSelected={this.setSelected.bind(this)}
+            players={players}
+            colors={colors}
           />
         }
       </div>

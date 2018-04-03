@@ -1,21 +1,38 @@
 import React from 'react';
 import Input from './Input.jsx';
 import Swatch from './Swatch.jsx';
+import Button from '../Button.jsx';
 
 class PlayerPanel extends React.Component {
   render() {
-    var {player, setName, index} = this.props;
+    var {player, index, toggleActive, setSelected} = this.props;
     return (
-      <div className="container panel">
-        {
+      player.isActive ?
+        <div className="container panel">
+          {/*index > 1 && <Button
+            className="delete"
+            clickFn={() => toggleActive(index)}
+            value='x'
+          />*/}
           <Input
             placeholder={"Name"}
             value={player.name} // can do some toggle for value a placeholder with input and default value
             setName={this.setName.bind(this)}
           />
-        }
-        <Swatch color={player.color}/>
-      </div>
+          <Swatch color={player.color} clickFn={() => {setSelected(index)}}/>
+        </div>
+        :
+        <Button
+          className="container panel add"
+          clickFn={() => toggleActive(index)}
+          value={
+            <div>
+            <p> Add Player </p>
+            <p> + </p>
+            </div>
+          }
+        />
+
     );
   }
   setName(value) {
