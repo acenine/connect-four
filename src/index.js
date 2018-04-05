@@ -19,20 +19,42 @@ import './index.css';
 //  --- Modules ---
 import Game from './components/game/Game.jsx';
 import Menu from './components/menu/Menu.jsx';
+// import Try from './Try.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: [{name: '', color: '', isActive: true},
-                {name: '', color: '', isActive: true},
-                {name: '', color: '', isActive: false},
-                {name: '', color: '', isActive: false}],
+      // players: [{name: '', color: '', isActive: true},
+      //           {name: '', color: '', isActive: true},
+      //           {name: '', color: '', isActive: false},
+      //           {name: '', color: '', isActive: false}],
+      // players: [{name: 'Lucy', color: 'blue'},
+      //           {name: 'Ryan', color: 'cyan'},],
+      players: [{name: 'Lucy', color: 'blue', isActive: true},
+                {name: 'Chad', color: 'red', isActive: true},
+                {name: 'Greg', color: 'green', isActive: false},
+                {name: 'Judy', color: 'purple', isActive: false}],
       boardSize: {width: 7, height: 6},
+      maxPlayers: 4,
       colors: ['blue', 'red', 'green', 'orange', 'purple', 'black', 'white', 'cyan'],
       showGame: false,
       selected: -1,
     };
+  }
+  addPlayer() {
+    var {players, maxPlayers} = this.state;
+    if (players.length === maxPlayers) {
+      return;
+    }
+    players.push({name: '', color: ''});
+    this.setState({players});
+  }
+  activePlayers() {
+    var {players} = this.state;
+    return players.filter((player) => {
+      return player.isActive;
+    })
   }
   setName(index, name) {
     var {players} = this.state;
@@ -65,13 +87,13 @@ class App extends React.Component {
     })
   }
   render() {
-    const {boardSize, players, showGame, colors} = this.state;
+    const {boardSize, players, showGame, colors, maxPlayers} = this.state;
     return (
       <div className="app container">
         <h1 className="title">Connect Four</h1>
         {showGame ?
           <Game
-            players={players}
+            players={this.activePlayers()}
             width={boardSize.width}
             height={boardSize.height}
             showMenu={this.toggleView.bind(this)}
@@ -85,8 +107,10 @@ class App extends React.Component {
             setSelected={this.setSelected.bind(this)}
             players={players}
             colors={colors}
+            maxPlayers={maxPlayers}
           />
         }
+        {/*<Try/>*/}
       </div>
     );
   }

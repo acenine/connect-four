@@ -7,7 +7,7 @@ body, .window, input {
 button:focus, input:focus {
   outline: none;
 }
-button:hover {
+button:hover, .add:hover{
   cursor: pointer;
 }
 .container {
@@ -44,16 +44,6 @@ input {
 .button:active {
   background: #080;
 }
-.add {
-  font: 18pt sans-serif;
-  color: #543;
-  text-shadow: none;
-  padding: 0;
-  margin: 0;
-}
-.add:active {
-  background: #765;
-}
 .buttons {
   flex-direction: row;
   justify-content: space-evenly;
@@ -88,9 +78,6 @@ input {
 
 .column {
   float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
   height: 420px;
   padding: 0;
   text-align: center;
@@ -104,16 +91,13 @@ input {
   padding: 0;
   width: 70px;
   height: 70px;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  text-align: center;
   align-content: center;
   clear: left;
 }
 
 .window {
   border-radius: 50%;
+  position: absolute;
   width: 55px;
   height: 55px;
   margin-top: 10px;
@@ -121,6 +105,32 @@ input {
   box-shadow: 5px;
   background: radial-gradient(farthest-corner at -70px -40px, #000 0%, #aaafff 100%);
 }
+
+/* --- piece animation --- */
+
+/*@keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}*/
+.piece {
+  width: 65px;
+  height: 65px;
+  margin-top: -5px;
+  margin-left: -5px;
+  border-radius: 50%;
+  position: relative;
+  -webkit-animation-name: mymove; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+  /*-webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */*/
+  animation-name: mymove;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  /*animation-direction: alternate;*/
+  object-fit: cover;
+  }
+
+/* --- end piece animation --- */
 
 /* --- Panel --- */
 .panels {
@@ -138,7 +148,41 @@ input {
   justify-content: space-evenly;
 
 }
-
+p {
+  margin: 15px;
+}
+.add {
+  font: 18pt sans-serif;
+  color: #543;
+  text-shadow: none;
+  padding: 0;
+  margin: 0;
+  line-height: 0px;
+  justify-content: center;
+}
+.add:active {
+  background: #765;
+}
+.delete {
+  border: 1px solid #900;
+  margin-bottom: -50px;
+  right: -54px;
+  top: -30px;
+  position: relative;
+  background: linear-gradient(to bottom, #e00, #c00, #a00);
+  color: white;
+  font-size: 18px;
+  padding: 0px 8px 3px 8px;
+}
+.delete:active {
+  background: #900;
+}
+.hide {
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
 /* --- Palette --- */
 .palette {
   background: #987;
@@ -149,9 +193,6 @@ input {
   padding: 0 20px;
   flex-direction: row;
   justify-content: space-between;
-}
-.delete {
-  background: red;
 }
 
 /* --- Swatch colors --- */
@@ -175,7 +216,7 @@ input {
 }
 
 .orange {
-  background: #f60;
+  background: #f70;
 }
 
 .purple{
@@ -193,3 +234,4 @@ input {
 .cyan {
   background: #0ff;
 }
+

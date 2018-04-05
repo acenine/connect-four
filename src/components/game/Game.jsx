@@ -26,7 +26,7 @@ class Game extends React.Component {
             clickFn={this.newGame.bind(this)}
           />
           <Button
-            value="Edit Config"
+            value="Menu"
             clickFn={this.props.showMenu}
           />
         </div>
