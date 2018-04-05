@@ -34,17 +34,18 @@ input {
   border: 1px solid #050;
   border-radius: 7px;
   background: linear-gradient(to bottom, #0b0, #090, #070);
-  box-shadow: 0px .5px 1px #333;
+  box-shadow: .5px .5px 1px #333;
   color: #fff;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #030;
-  padding: 5px 10px 7px 10px;
+  font: bold 18px sans-serif;
+  text-shadow: 0 0 2px #000, 1px 1px 1px #333;
+  padding: 6px 10px 6px 10px;
   margin: 5px 10px;
 }
 .button:active {
   background: #080;
 }
 .buttons {
+  margin: 20px;
   flex-direction: row;
   justify-content: space-evenly;
   background: none;
@@ -164,15 +165,17 @@ p {
   background: #765;
 }
 .delete {
-  border: 1px solid #900;
+  border: 1px solid #600;
   margin-bottom: -50px;
-  right: -54px;
-  top: -30px;
+  right: -53.5px;
+  top: -29.5px;
   position: relative;
   background: linear-gradient(to bottom, #e00, #c00, #a00);
   color: white;
   font-size: 18px;
-  padding: 0px 8px 3px 8px;
+  /*font-weight: normal;*/
+  padding: 1px 8px 4px 8px;
+  box-shadow: 0px 0px 1px #333;
 }
 .delete:active {
   background: #900;
