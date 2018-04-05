@@ -17,8 +17,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 //  --- Modules ---
-import Game from './src/components/game/Game.jsx';
-import Menu from './src/components/menu/Menu.jsx';
+import Game from './components/game/Game.jsx';
+import Menu from './components/menu/Menu.jsx';
 // import Try from './Try.jsx'
 
 class App extends React.Component {
