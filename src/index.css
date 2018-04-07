@@ -206,6 +206,11 @@ p {
   border: 5px solid #543;
   background: #876
 }
+
+.fade {
+  opacity: .4;
+}
+
 .blue{
   background: blue;
 }

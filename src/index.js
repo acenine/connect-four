@@ -42,6 +42,14 @@ class App extends React.Component {
       selected: -1,
     };
   }
+  usedColors() {
+    var {players} = this.state;
+    return players.filter((player) => {
+      return player.isActive
+    }).map((player)=>{
+      return player.color;
+    })
+  }
   addPlayer() {
     var {players, maxPlayers} = this.state;
     if (players.length === maxPlayers) {
@@ -105,6 +113,7 @@ class App extends React.Component {
             showGame={this.toggleView.bind(this)}
             setColor={this.setColor.bind(this)}
             setSelected={this.setSelected.bind(this)}
+            usedColors={this.usedColors()}
             players={players}
             colors={colors}
             maxPlayers={maxPlayers}

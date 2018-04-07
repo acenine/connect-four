@@ -5,7 +5,7 @@ import Button from '../Button.jsx';
 
 class Menu extends React.Component {
   render() {
-    var {players, colors, showGame, setName, toggleActive, setSelected, setColor, maxPlayers} = this.props;
+    var {players, colors, showGame, setName, toggleActive, setSelected, setColor, maxPlayers, usedColors} = this.props;
     return (
       <div className="container">
         <PanelView
@@ -18,6 +18,7 @@ class Menu extends React.Component {
         <Palette
           colors={colors}
           setColor={setColor}
+          usedColors={usedColors}
         />
         <div className="menu buttons container">
           <Button
