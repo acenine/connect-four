@@ -19,7 +19,7 @@ import './index.css';
 //  --- Modules ---
 import Game from './components/game/Game.jsx';
 import Menu from './components/menu/Menu.jsx';
-// import Try from './Try.jsx'
+// import Try from '../../Try.jsx'
 
 class App extends React.Component {
   constructor(props) {
