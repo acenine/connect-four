@@ -41,14 +41,25 @@ class App extends React.Component {
       showGame: false,
       selected: -1,
     };
+    console.log(this.unusedColor());
   }
   usedColors() {
     var {players} = this.state;
-    return players.filter((player) => {
+    return new Set(players.filter((player) => {
       return player.isActive
     }).map((player)=>{
       return player.color;
-    })
+    }))
+  }
+  unusedColor() {
+    var {colors} = this.state;
+    var used = this.usedColors();
+    for (var c = 0; c < colors.length; c++) {
+      var color = colors[c];
+      if (!used.has(color)) {
+        return color;
+      }
+    }
   }
   addPlayer() {
     var {players, maxPlayers} = this.state;
@@ -86,7 +97,9 @@ class App extends React.Component {
   }
   toggleActivePlayer(index) {
     var {players} = this.state;
-    players[index].isActive = !players[index].isActive;
+    var player = players[index];
+    player.isActive = !player.isActive;
+    player.color = this.unusedColor();
     this.setState({players});
   }
   toggleView() {

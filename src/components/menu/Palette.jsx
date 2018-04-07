@@ -7,7 +7,7 @@ class Palette extends React.Component {
     return (
       <div className="container palette">
         {colors.map((color, i) => {
-          var fade = usedColors.indexOf(color) >= 0;
+          var fade = usedColors.has(color);
           return (
             <Swatch
               color={color}
